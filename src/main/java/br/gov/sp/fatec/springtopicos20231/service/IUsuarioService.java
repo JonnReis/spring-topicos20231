@@ -8,6 +8,8 @@ public interface IUsuarioService {
     
     public Usuario novoUsuario(Usuario usuario);
 
+    public Usuario novoUsuario(String nome, String senha);
+
     public List<Usuario> buscarTodosUsuarios();
 
     public Usuario buscarPorId(Long id);
