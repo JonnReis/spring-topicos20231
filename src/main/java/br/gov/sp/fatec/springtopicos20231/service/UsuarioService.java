@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import br.gov.sp.fatec.springtopicos20231.entity.Usuario;
@@ -26,7 +26,12 @@ public class UsuarioService implements IUsuarioService {
         return usuarioRepo.save(usuario);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    public Usuario novoUsuario(String nome, String senha) {
+        Usuario usuario = new Usuario(nome, senha);
+        return novoUsuario(usuario);
+    }
+
+    //@PreAuthorize("hasRole('ADMIN')")
     public List<Usuario> buscarTodosUsuarios() {
         return usuarioRepo.findAll();
     }
